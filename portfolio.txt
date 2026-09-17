@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alya Tsurayya Mumtaz | Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1e3c72;
+            --secondary-blue: #2a5298;
+            --accent-blue: #3498db;
+            --light-bg: #f4f7f6;
+            --text-dark: #2c3e50;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo { font-weight: 700; font-size: 1.2rem; color: var(--primary-blue); }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: var(--transition); }
+        .nav-links a:hover { color: var(--accent-blue); }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 0 20px; margin-top: 50px;
+        }
+        header h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; font-weight: 300; max-width: 700px; margin-bottom: 30px; }
+        
+        .btn {
+            display: inline-block; padding: 12px 30px;
+            background-color: var(--accent-blue); color: var(--white);
+            text-decoration: none; border-radius: 30px; font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+        .section-title { text-align: center; font-size: 2rem; color: var(--primary-blue); margin-bottom: 40px; position: relative; }
+        .section-title::after {
+            content: ''; width: 60px; height: 4px; background-color: var(--accent-blue);
+            display: block; margin: 10px auto 0; border-radius: 2px;
+        }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        
+        .card {
+            background: var(--white); border-radius: 12px; padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition);
+            border-bottom: 5px solid transparent; display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-bottom: 5px solid var(--accent-blue); }
+        
+        .card-img {
+            width: 100%; height: 220px; object-fit: contain;
+            background-color: #f8f9fa; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee;
+        }
+        .card-img.cover { object-fit: cover; }
+        .card h3 { color: var(--primary-blue); margin-bottom: 5px; font-size: 1.2rem; }
+        .card .date { color: var(--accent-blue); font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; }
+        
+        ul.styled-list { padding-left: 20px; font-size: 0.95rem; }
+        ul.styled-list li { margin-bottom: 5px; }
+
+        .skills-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .skill-tag {
+            background-color: var(--white); color: var(--primary-blue);
+            padding: 10px 20px; border-radius: 30px; font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: var(--transition);
+        }
+        .skill-tag:hover { background-color: var(--primary-blue); color: var(--white); transform: scale(1.05); }
+
+        .contact-info { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .contact-item {
+            display: flex; align-items: center; gap: 10px;
+            background: var(--white); padding: 15px 25px; border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition);
+        }
+        .contact-item:hover { transform: translateY(-5px); color: var(--accent-blue); }
+        .contact-item a { text-decoration: none; color: inherit; font-weight: 600; }
+
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">Alya Tsurayya Mumtaz</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Awards</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <h1>Alya Tsurayya Mumtaz</h1>
+        <p>Industrial Engineering Graduate from Universitas Indonesia | Specializing in Supply Chain Improvement, Strategic Planning, and Data-Driven Problem Solving.</p>
+        <a href="#projects" class="btn">Explore My Work</a>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="reveal">
+            <h2 class="section-title">About Me</h2>
+            <div class="card" style="text-align: center; border-bottom: none;">
+                <p>Hello! I am an Industrial Engineering graduate with hands-on experience in supply chain-related process improvement, operational analysis, and strategic planning. I excel at leveraging tools like Excel, Power BI, and Tableau to identify process inefficiencies, build robust financial models, and structure product strategies. Highly adaptable and collaborative, I am dedicated to driving continuous improvement and data-driven business decisions.</p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="reveal">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="skha-consulting.png" alt="Skha Consulting" class="card-img cover">
+                    <h3>Research Analyst (Project-Based)</h3>
+                    <div class="date">Skha Consulting | March - Present</div>
+                    <ul class="styled-list">
+                        <li>Supported the redesign of a BUMN business model in response to evolving government regulations.</li>
+                        <li>Evaluated business feasibility through financial and operational analyses.</li>
+                        <li>Conducted industry benchmarking across 20+ business solutions and technologies.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="pertamina.png" alt="Pertamina Hulu Rokan" class="card-img cover">
+                    <h3>Strategic Planning Intern</h3>
+                    <div class="date">PT Pertamina Hulu Rokan | Jul - Aug 2025</div>
+                    <ul class="styled-list">
+                        <li>Built 27 investment scenarios incorporating oil price volatility and CAPEX assumptions.</li>
+                        <li>Performed valuation using NPV, IRR, and EMV to assess capital-intensive investments.</li>
+                        <li>Supported executive decision-making through structured financial modeling.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="sula-alam.png" alt="Sula Alam Resources" class="card-img cover">
+                    <h3>Internal Audit Intern</h3>
+                    <div class="date">PT Sula Alam Resources | Jan - Feb 2024</div>
+                    <ul class="styled-list">
+                        <li>Audited and validated 100+ operational and financial transactions.</li>
+                        <li>Identified process inefficiencies in the verification workflow.</li>
+                        <li>Proposed structured documentation improvements to ensure compliance.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="reveal">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="thesis-ev.png" alt="EV Features Thesis" class="card-img cover">
+                    <h3>Consumer Preference Analysis for EV Features (Thesis)</h3>
+                    <div class="date">Universitas Indonesia | Aug - Jan 2026</div>
+                    <ul class="styled-list">
+                        <li>Designed a Choice-Based Conjoint (CBC) experiment involving 8 product attributes and 12 choice tasks.</li>
+                        <li>Processed survey data to estimate customer trade-offs and willingness-to-pay (WTP).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="time-app.png" alt="Time Management Tool" class="card-img cover">
+                    <h3>Productivity Mobile Application (MVP)</h3>
+                    <div class="date">Product Development Team Leader | Sep - Dec 2025</div>
+                    <ul class="styled-list">
+                        <li>Led a 5-member cross-functional team using the Double Diamond framework.</li>
+                        <li>Conducted end-to-end user research to design the product value proposition and user journey.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="asrama-mart.png" alt="Asrama Mart Data" class="card-img cover">
+                    <h3>Quality Improvement Asrama Mart</h3>
+                    <div class="date">Team Leader | Mar - Jun 2024</div>
+                    <ul class="styled-list">
+                        <li>Applied DMAIC methodology to evaluate operational inefficiencies in a campus minimarket.</li>
+                        <li>Analyzed 500+ sales records to identify root causes of stock availability delays.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="reveal">
+            <h2 class="section-title">Certifications & Awards</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="lead-competition.png" alt="LeadCompetition Certificate" class="card-img">
+                    <h3>LeadCompetition Semi-Finalist</h3>
+                    <div class="date">12th Place, AIESEC in UI | 2025</div>
+                </div>
+                <div class="card">
+                    <img src="english-mooc.png" alt="English MOOC Certificate" class="card-img">
+                    <h3>English for Career Development</h3>
+                    <div class="date">University of Pennsylvania, OPEN Program | 2025</div>
+                </div>
+                <div class="card">
+                    <img src="oracle-cert.png" alt="Oracle Certificate" class="card-img">
+                    <h3>Primavera Cloud Management</h3>
+                    <div class="date">Oracle | 2024</div>
+                </div>
+                <div class="card">
+                    <img src="una-ebook.png" alt="UNA Ebook Contributor" class="card-img">
+                    <h3>Selected E-Book Contributor</h3>
+                    <div class="date">United Nations Association Indonesia | 2025</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="reveal">
+            <h2 class="section-title">Technical Skills & Expertise</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Microsoft Excel</span>
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Oracle Primavera P6</span>
+                <span class="skill-tag">Powersim</span>
+                <span class="skill-tag">Basic Python</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Financial Modeling</span>
+                <span class="skill-tag">CBC Analysis</span>
+                <span class="skill-tag">DMAIC Process Improvement</span>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="reveal">
+            <h2 class="section-title">Let's Connect!</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope" style="color: var(--accent-blue);"></i>
+                    <a href="mailto:tsurayyalya@gmail.com">tsurayyalya@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone" style="color: var(--accent-blue);"></i>
+                    <a href="tel:+6281214045883">+62 8121 404 5883</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin" style="color: var(--accent-blue);"></i>
+                    <a href="https://linkedin.com/in/alyatsurayyamumtaz/" target="_blank">LinkedIn Profile</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>
